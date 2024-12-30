@@ -1,0 +1,24 @@
+---
+name: 'Build Openvpn Image'
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '22 4 * * *'
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    name: 'OCI'
+    uses: curium-rocks/flows/.github/workflows/oci-build-image.yml@main
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+      id-token: write
+    with:
+      registry: ghcr.io/vamcaptain
+      image_name: openvpn
