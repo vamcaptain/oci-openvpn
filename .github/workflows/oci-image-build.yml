@@ -21,4 +21,4 @@ jobs:
       id-token: write
     with:
       registry: ghcr.io/vamcaptain
-      image_name: oci-openvpn
+      image_name: openvpn
